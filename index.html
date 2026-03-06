@@ -1,76 +1,352 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PROBRO | Download Protocol</title>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ID" crossorigin="anonymous"></script>
-    <style>
-        :root { --p-purple: #a855f7; --bg: #050505; }
-        body { background: var(--bg); color: #eee; font-family: 'Courier New', monospace; margin: 0; display: flex; flex-direction: column; align-items: center; }
-        
-        .ad-slot { width: 100%; max-width: 728px; height: 90px; background: #111; margin: 20px 0; border: 1px dashed #333; display: flex; align-items: center; justify-content: center; color: #333; font-size: 10px; }
-        
-        main { max-width: 800px; padding: 40px 20px; text-align: center; }
-        .hero { border: 1px solid var(--p-purple); padding: 40px; background: rgba(168, 85, 247, 0.05); }
-        h1 { color: var(--p-purple); letter-spacing: 4px; margin: 0; font-size: 2.5rem; }
-        
-        .download-btn { 
-            display: inline-block; margin-top: 30px; padding: 20px 40px;
-            background: var(--p-purple); color: black; text-decoration: none;
-            font-weight: bold; font-size: 1.2rem; border-radius: 4px;
-            box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
-        }
-        .download-btn:hover { transform: scale(1.05); filter: brightness(1.1); }
-        
-        .features { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; text-align: left; margin-top: 50px; }
-        .feature-card { border: 1px solid #222; padding: 20px; }
-        .feature-card h3 { color: var(--p-purple); margin-top: 0; }
-        
-        footer { margin-top: 50px; padding: 20px; color: #444; font-size: 12px; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NOCTIS</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#0a0a0a;
+color:white;
+}
+
+/* NAV */
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+border-bottom:1px solid #222;
+}
+
+.logo{
+font-size:28px;
+letter-spacing:6px;
+font-weight:600;
+}
+
+nav a{
+margin-left:20px;
+text-decoration:none;
+color:white;
+opacity:.8;
+}
+
+/* HERO */
+
+.hero{
+height:40vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+.hero h1{
+font-size:60px;
+letter-spacing:10px;
+}
+
+/* CATEGORY TABS */
+
+.tabs{
+display:flex;
+justify-content:center;
+gap:30px;
+margin:40px 0;
+}
+
+.tab{
+cursor:pointer;
+opacity:.6;
+font-size:18px;
+}
+
+.tab.active{
+opacity:1;
+border-bottom:2px solid white;
+}
+
+/* PRODUCTS */
+
+.products{
+padding:0 8% 80px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:40px;
+}
+
+.product{
+background:#111;
+padding:15px;
+border-radius:10px;
+}
+
+.product img{
+width:100%;
+border-radius:6px;
+}
+
+.product h3{
+margin-top:10px;
+}
+
+.price{
+opacity:.6;
+margin-top:5px;
+}
+
+select{
+margin-top:6px;
+width:100%;
+padding:6px;
+background:#222;
+border:none;
+color:white;
+}
+
+button{
+margin-top:10px;
+padding:10px;
+width:100%;
+border:none;
+background:white;
+color:black;
+cursor:pointer;
+font-weight:600;
+}
+
+/* CART */
+
+.cart{
+position:fixed;
+top:20px;
+right:20px;
+background:black;
+padding:12px 16px;
+border-radius:8px;
+border:1px solid #333;
+cursor:pointer;
+}
+
+</style>
+
 </head>
+
+
 <body>
 
-    <div class="ad-slot">
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-YOUR_ID" data-ad-slot="123456789" data-ad-format="auto"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
 
-    <main>
-        <section class="hero">
-            <h1>PROBRO v3.0</h1>
-            <p>The air-gapped productivity browser for students and devs.</p>
-      <a href="https://github.com/chriscancod/probrov3/releases/download/nifh/probro.zip" download="ProBro_Installer" class="download-btn">
-   INSTANT DOWNLOAD
-</a>
-            <p style="font-size: 10px; margin-top: 15px; color: #666;">Supports macOS 12.0+ | Silicon & Intel</p>
-        </section>
+<div class="cart" onclick="openCart()">
+Cart (<span id="cartCount">0</span>)
+</div>
 
-        <div class="ad-slot" style="height: 250px;">
-             [AD_VERTICAL_OR_SQUARE]
-        </div>
 
-        <section class="features">
-            <div class="feature-card">
-                <h3>01. Node Isolation</h3>
-                <p>Keep your research, work, and breaks in separate browser "islands" to prevent context switching.</p>
-            </div>
-            <div class="feature-card">
-                <h3>02. Zero Tracking</h3>
-                <p>Everything is stored locally on your machine via SwiftData. No cloud, no surveillance.</p>
-            </div>
-        </section>
+<nav>
 
-        <article style="text-align: left; line-height: 1.6; color: #888; margin-top: 40px;">
-            <h2>About PROBRO</h2>
-            <p>PROBRO is an open-source productivity environment built for focused study sessions. By utilizing native web frameworks, it allows users to pin essential web nodes while maintaining a minimalist workspace.</p>
-        </article>
-    </main>
+<div class="logo">NOCTIS</div>
 
-    <footer>
-        PROTOCOL ACTIVE // &copy; 2026 PROBRO PROJECT
-    </footer>
+<div>
+<a href="#">Home</a>
+<a href="#">Shop</a>
+<a href="#">Contact</a>
+</div>
+
+</nav>
+
+
+<section class="hero">
+
+<h1>NOCTIS</h1>
+<p>Built for the night</p>
+
+</section>
+
+
+<div class="tabs">
+
+<div class="tab active" onclick="filterCategory('shirts',this)">
+Shirts
+</div>
+
+<div class="tab" onclick="filterCategory('pants',this)">
+Pants
+</div>
+
+<div class="tab" onclick="filterCategory('accessories',this)">
+Accessories
+</div>
+
+</div>
+
+
+<section class="products" id="products"></section>
+
+
+<script>
+
+/* PRODUCT DATABASE */
+
+const products = [
+
+{
+name:"Noctis all worth it Tee",
+price:15,
+category:"shirts",
+image:"images/shirt1.jpg",
+sizes:["S","M","L","XL"],
+colors:["Black","Sand"]
+},
+
+{
+name:"Noctis Heavy Hoodie",
+price:85,
+category:"shirts",
+image:"images/hoodie1.jpg",
+sizes:["S","M","L","XL"],
+colors:["Black"]
+},
+
+{
+name:"Noctis Cargo Pants",
+price:95,
+category:"pants",
+image:"images/pants1.jpg",
+sizes:["S","M","L","XL"],
+colors:["Black","Grey"]
+},
+
+{
+name:"Noctis Beanie",
+price:25,
+category:"accessories",
+image:"images/beanie.jpg",
+sizes:["One Size"],
+colors:["Black"]
+}
+
+]
+
+const container = document.getElementById("products")
+
+function renderProducts(category){
+
+container.innerHTML=""
+
+products.forEach((product,i)=>{
+
+if(product.category===category){
+
+container.innerHTML += `
+
+<div class="product">
+
+<img src="${product.image}">
+
+<h3>${product.name}</h3>
+
+<div class="price">$${product.price}</div>
+
+<select id="size${i}">
+${product.sizes.map(s=>`<option>${s}</option>`).join("")}
+</select>
+
+<select id="color${i}">
+${product.colors.map(c=>`<option>${c}</option>`).join("")}
+</select>
+
+<button onclick="addToCart(${i})">
+Add to Cart
+</button>
+
+</div>
+
+`
+
+}
+
+})
+
+}
+
+/* CATEGORY FILTER */
+
+function filterCategory(category,element){
+
+document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"))
+
+element.classList.add("active")
+
+renderProducts(category)
+
+}
+
+renderProducts("shirts")
+
+
+/* CART */
+
+let cart = JSON.parse(localStorage.getItem("cart")) || []
+
+function addToCart(index){
+
+const size=document.getElementById("size"+index).value
+const color=document.getElementById("color"+index).value
+
+cart.push({
+name:products[index].name,
+price:products[index].price,
+size,
+color
+})
+
+localStorage.setItem("cart",JSON.stringify(cart))
+
+updateCart()
+
+}
+
+function updateCart(){
+
+document.getElementById("cartCount").innerText = cart.length
+
+}
+
+updateCart()
+
+
+function openCart(){
+
+let total=0
+let text="Cart\n\n"
+
+cart.forEach(item=>{
+
+text += `${item.name} (${item.size},${item.color}) - $${item.price}\n`
+
+total+=item.price
+
+})
+
+text += `\nTotal: $${total}`
+
+alert(text)
+
+}
+
+</script>
 
 </body>
 </html>
